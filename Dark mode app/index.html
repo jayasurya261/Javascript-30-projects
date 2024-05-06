@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hide and Show Password app</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut Icon" type="images/png" href="images/brightness-and-contrast.png">
+</head>
+<body><div class="full" id="full_1">
+    <img src="images/contrast.png" class="sun" id="mode" name = "sun">
+    <div class="text-box" id="input">
+        <input type="password" placeholder="password"  id="input1" class="user">
+        <img src="images/eye-close.png" id="eye">
+    </div>
+</div>
+    <script>
+        password = document.getElementById("input1");
+        eyeIcon = document.getElementById("eye");
+        eyeIcon.onclick = function(){
+        if(password.type == "password"){
+            password.type = "text";
+            eyeIcon.src = "images/eye-open.png";
+        }else{
+            password.type = "password";
+            eyeIcon.src = "images/eye-close.png";
+        }
+    }
+    mode = document.getElementById("mode");
+    full = document.getElementById("full_1");
+    input = document.getElementById("input");
+    user = document.getElementById("user");
+    mode.onclick = function(){
+        if(mode.name == "sun"){
+        full.classList.add("newFull");
+        mode.src = "images/moon.png";
+        input.classList.add("newBox");
+        eye.src = 'images/eye-close.png';
+        mode.name = "moon";
+        input1.classList.add("user1");
+        input1.classList.remove("user");
+
+    }else{
+        full.classList.remove("newFull");
+        mode.src = "images/contrast.png";
+        input.classList.remove("newBox");
+        eye.src = 'images/eye-close.png';
+        mode.name = "sun";
+        input1.classList.remove("user1");
+        input1.classList.add("user");
+    }
+}
+
+    </script>
+</body>
+</html>

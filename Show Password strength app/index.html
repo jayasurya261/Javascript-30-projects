@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Password strength app</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/4f09fc2d46.js" crossorigin="anonymous"></script>
+    <link rel="shortcut Icon" type="images/png" href="images/padlock.png">
+</head>
+<body>
+    <div class="container">
+        <div class="input-box">
+            <input type="password" placeholder="Enter your password" id="password">
+            <button type="submit"><img src="images/arrow.png"></button>
+            <p id="message">Password is <span id="strength"></span></p>
+        </div>
+    </div>
+    <script>
+        var pass = document.getElementById("password");
+        var strength = document.getElementById("strength");
+        var msg = document.getElementById("message");
+
+        pass.addEventListener('input',()=>{
+            if(pass.value.length>0){
+                msg.style.display="block";
+            }else{
+                msg.style.display = "none";
+            }
+            if(pass.value.length<4)
+            {
+                strength.innerHTML = "weak";
+                pass.style.borderColor = "#ff5925"
+                msg.style.color = "#ff5925";
+            }else if(pass.value.length>=4 && pass.value.length<8)
+            {
+                strength.innerHTML = "medium";
+                pass.style.borderColor = "yellow"
+                msg.style.color = "yellow";
+            }else if(pass.value.length>=8){
+                strength.innerHTML = "strong";
+                pass.style.borderColor = "#26d730"
+                msg.style.color = "#26d730";
+            }
+        })
+    </script>
+</body>
+</html>

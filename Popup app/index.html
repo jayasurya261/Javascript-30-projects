@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup app</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut Icon" type="image/png" href="images/text.png">
+</head>
+<body>
+    <div class="container">
+        <input type="submit" onclick="openpop()"></input>
+        <div class="popup" id="popup">
+        <img src="images/404-tick.png">
+        <h2>Thank You</h2>
+        <p>You Request has been successfully received!!!</p>
+        <button onclick="closepop()">OK</button>
+        </div>
+    </div>
+    <script>
+        let popup = document.getElementById("popup");
+
+        function openpop(){
+                popup.classList.add("pop-up");
+        }
+        function closepop(){
+            popup.classList.remove("pop-up");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch app</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/4f09fc2d46.js" crossorigin="anonymous"></script>
+    <link rel="shortcut Icon" type="images/png" href="images/3d-stopwatch.png">
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="displayTime">00:00:00</h1>
+        <i class="fa-regular fa-circle-pause" onclick="pause()"></i>
+        <i class="fa-regular fa-circle-play" onclick="watchStart()"></i>
+        <i class="fa-solid fa-rotate-right" onclick="reset()"></i>
+    </div>
+    <script>
+
+        let [second,minute,hour] = [0,0,0];
+        let time = document.getElementById("displayTime");
+        let timer = null;
+
+        function stopWatch(){
+            second++;
+            if(second == 60){
+                    second =0;
+                    minute++;
+                    if(minute==60)
+                    {
+                        minute = 0;
+                        hour++;
+                    }
+            }
+            let h = hour<10 ? "0"+hour : hour;
+            let m = minute<10 ? "0"+minute : minute;
+            let s = second<10 ? "0"+second : second;
+            time.innerHTML = h+":"+m+":"+s;
+        }
+        function watchStart(){
+            if(timer!==null)
+            {
+                clearInterval(timer);
+            }
+            timer = setInterval(stopWatch,1000)
+        }
+
+        function pause(){
+            clearInterval(timer);
+        }
+        function reset(){
+            clearInterval(timer);
+            [second,minute,hour] = [0,0,0];
+            time.innerHTML = "00:00:00"
+        }
+    </script>
+</body>
+</html>
